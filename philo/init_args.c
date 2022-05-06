@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./philo/include/philo.h"
+#include "./include/philo.h"
 
 void	ft_get_args(t_arg *args, int ac, char *av[])
 {
