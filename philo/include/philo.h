@@ -22,16 +22,17 @@
 
 typedef struct s_args
 {
-	int nb_philos;
-	int	t_dead;
+	int	nb_philos;
+	int	t_die;
 	int	t_eat;
-	int t_sleep;
-	int	to_eats;
+	int	t_sleep;
+	int	nb_t_eat;
 }	t_arg;
-
 
 void	ft_putstr_fd(char *str, int fd);
 void	ft_puterr(char *str);
 int		ft_atoi(const char *str);
+void	ft_get_args(t_arg *args, int ac, char *av[]);
+void	ft_check_args(t_arg args, int ac);
 
 #endif
