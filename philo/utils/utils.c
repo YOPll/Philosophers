@@ -12,6 +12,30 @@
 
 #include "./include/philo.h"
 
+int	ft_atoi(const char *str)
+{
+	int	j;
+	int	res;
+
+	j = 1;
+	res = 0;
+	while (*str == '\t' || *str == '\f' || *str == '\r'
+		|| *str == ' ' || *str == '\v' || *str == '\n')
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			j *= -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		res = res * 10 + (*str - '0');
+		str++;
+	}
+	return (res * j);
+}
+
 void	ft_putstr_fd(char *str, int fd)
 {
 	int	i;

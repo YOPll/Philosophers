@@ -20,7 +20,18 @@
 # include <string.h>
 # include <sys/time.h>
 
+typedef struct s_args
+{
+	int nb_philos;
+	int	t_dead;
+	int	t_eat;
+	int t_sleep;
+	int	to_eats;
+}	t_arg;
+
+
 void	ft_putstr_fd(char *str, int fd);
 void	ft_puterr(char *str);
+int		ft_atoi(const char *str);
 
 #endif
