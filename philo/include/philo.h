@@ -36,5 +36,7 @@ void	ft_puterr(char *str);
 int		ft_atoi(const char *str);
 void	ft_get_args(t_arg *args, int ac, char *av[]);
 void	ft_check_args(t_arg args, int ac);
+void	check_max_and_min(long x);
+int		is_integer(int ac, char *av[]);
 
 #endif
