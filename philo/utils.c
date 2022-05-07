@@ -12,6 +12,12 @@
 
 #include "./include/philo.h"
 
+void	check_max_and_min(long x)
+{
+	if (x <= INT_MIN || x > INT_MAX)
+		ft_puterr("Wrong argument");
+}
+
 int	ft_atoi(const char *str)
 {
 	int	j;
@@ -28,11 +34,14 @@ int	ft_atoi(const char *str)
 			j *= -1;
 		str++;
 	}
+	if (*str < '0' || *str > '9')
+		ft_puterr("Wrong argument");
 	while (*str >= '0' && *str <= '9')
 	{
 		res = res * 10 + (*str - '0');
 		str++;
 	}
+	check_max_and_min(res);
 	return (res * j);
 }
 
@@ -53,5 +62,5 @@ void	ft_putstr_fd(char *str, int fd)
 void	ft_puterr(char *str)
 {
 	ft_putstr_fd(str, 1);
-	exit(0);
+	exit(1);
 }
