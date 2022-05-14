@@ -22,10 +22,10 @@
 
 typedef struct s_args
 {
-	int nb_philos;
+	int	nb_philos;
 	int	t_dead;
 	int	t_eat;
-	int t_sleep;
+	int	t_sleep;
 	int	to_eats;
 }	t_arg;
 
