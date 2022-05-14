@@ -17,11 +17,13 @@ int	main(int ac, char *av[])
 	t_arg	args;
 
 	if (ac != 5 && ac != 6)
-		ft_puterr("Usage : ./philo number_of_philosophers time_to_die time_to_eat\
-		time_to_sleep [number_of_times_each_philosopher_must_eat]");
+		return (ft_puterr("Usage : ./philo <number_of_philosophers> "\
+			"<time_to_die> <time_to_eat> <time_to_sleep> "\
+			"[number_of_times_each_philosopher_must_eat]\n"));
 	else
 	{
-		is_integer(ac, av);
+		if (is_integer(ac, av) == 1)
+			return (1);
 		memset(&args, 0, sizeof(t_arg));
 		ft_get_args(&args, ac, av);
 		ft_check_args(args, ac);

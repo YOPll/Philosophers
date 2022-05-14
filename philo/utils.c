@@ -30,11 +30,14 @@ int	is_integer(int ac, char *av[])
 				j++;
 			}
 			else
-				ft_puterr("Wrong argument");
+			{
+				ft_puterr("Wrong arguments\n");
+				return (1);
+			}
 		}
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 void	check_max_and_min(long x)
@@ -84,8 +87,8 @@ void	ft_putstr_fd(char *str, int fd)
 	}
 }
 
-void	ft_puterr(char *str)
+int	ft_puterr(char *str)
 {
 	ft_putstr_fd(str, 1);
-	exit(1);
+	return (1);
 }
