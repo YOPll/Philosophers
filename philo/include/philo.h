@@ -22,6 +22,8 @@
 # include <string.h>
 # include <sys/time.h>
 
+typedef struct timeval	t_time;
+
 typedef struct s_args
 {
 	int	nb_philos;
@@ -35,7 +37,7 @@ typedef struct s_info
 {
 	int				id;
 	int				state;
-	pthread_mutex_t	mutex;
+	pthread_mutex_t	fork;
 	int				should_die;
 	long long		curr_time;
 	t_arg			philo_info;
@@ -48,5 +50,6 @@ void	ft_get_args(t_arg *args, int ac, char *av[]);
 int		ft_check_args(t_arg args, int ac);
 void	check_max_and_min(long x);
 int		is_integer(int ac, char *av[]);
+int		ft_init(t_info *info);
 
 #endif

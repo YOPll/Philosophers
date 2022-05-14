@@ -5,7 +5,8 @@ HEADER_DIR = include
 HEADER = include/philo.h
 SRC = philo.c\
 	utils.c\
-	init_args.c
+	init_args.c\
+	ft_init.c
 
 OBJS = $(SRC:.c=.o)
 
