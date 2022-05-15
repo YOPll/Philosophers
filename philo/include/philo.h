@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zyacoubi <mrx.ga10@gmail.com>              +#+  +:+       +#+        */
+/*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:07:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/05 15:07:56 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/15 17:33:38 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,31 +23,35 @@
 # include <sys/time.h>
 
 typedef struct timeval	t_time;
+typedef struct s_info	t_info;
 
-typedef struct s_args
-{
-	int	nb_philos;
-	int	t_die;
-	int	t_eat;
-	int	t_sleep;
-	int	nb_t_eat;
-}	t_arg;
-
-typedef struct s_info
+typedef struct s_philo
 {
 	int				id;
 	int				state;
-	pthread_mutex_t	fork;
 	int				should_die;
-	long long		curr_time;
-	t_arg			philo_info;
+	int				last_meal;
+	t_info			*philo_info;
+	pthread_t		philo;
+}	t_philo;
+
+typedef struct s_info
+{
+	int				nb_philos;
+	int				t_die;
+	int				t_eat;
+	int				t_sleep;
+	int				nb_t_eat;
+	long long		created_at;
+	pthread_mutex_t	*forks;
+	t_philo			*philo;
 }	t_info;
 
 void	ft_putstr_fd(char *str, int fd);
 int		ft_puterr(char *str);
 int		ft_atoi(const char *str);
-void	ft_get_args(t_arg *args, int ac, char *av[]);
-int		ft_check_args(t_arg args, int ac);
+void	ft_get_args(t_info *args, int ac, char *av[]);
+int		ft_check_args(t_info args, int ac);
 void	check_max_and_min(long x);
 int		is_integer(int ac, char *av[]);
 int		ft_init(t_info *info);

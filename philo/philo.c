@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zyacoubi <mrx.ga10@gmail.com>              +#+  +:+       +#+        */
+/*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 14:58:08 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/05 14:58:11 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/15 17:34:03 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	main(int ac, char *av[])
 	{
 		if (is_integer(ac, av) == 1)
 			return (1);
-		memset(&args, 0, sizeof(t_arg));
-		ft_get_args(&args.philo_info, ac, av);
-		ft_check_args(args.philo_info, ac);
+		memset(&args, 0, sizeof(t_info));
+		ft_get_args(&args, ac, av);
+		ft_check_args(args, ac);
 		ft_init(&args);
 	}
 	return (0);

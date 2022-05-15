@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init_args.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zyacoubi <mrx.ga10@gmail.com>              +#+  +:+       +#+        */
+/*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 16:55:54 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/06 16:55:55 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/15 17:30:27 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/philo.h"
 
-void	ft_get_args(t_arg *args, int ac, char *av[])
+void	ft_get_args(t_info *args, int ac, char *av[])
 {
 	args->nb_philos = ft_atoi(av[1]);
 	args->t_die = ft_atoi(av[2]);
@@ -24,7 +24,7 @@ void	ft_get_args(t_arg *args, int ac, char *av[])
 		args->nb_t_eat = -1;
 }
 
-int	ft_check_args(t_arg args, int ac)
+int	ft_check_args(t_info args, int ac)
 {
 	if (ac == 6 && args.nb_t_eat <= 0)
 	{
