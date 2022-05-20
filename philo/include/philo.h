@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:07:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/15 17:33:38 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/20 20:25:21 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ typedef struct s_info	t_info;
 typedef struct s_philo
 {
 	int				id;
-	int				state;
+	int				ate;
 	int				should_die;
 	int				last_meal;
 	t_info			*philo_info;
-	pthread_t		philo;
+	pthread_t		thread;
 }	t_philo;
 
 typedef struct s_info
@@ -42,9 +42,12 @@ typedef struct s_info
 	int				t_eat;
 	int				t_sleep;
 	int				nb_t_eat;
+	int				all_ate;
+	int				finished;
 	long long		created_at;
-	pthread_mutex_t	*forks;
 	t_philo			*philo;
+	pthread_mutex_t	finish_lock;
+	pthread_mutex_t	*forks;
 }	t_info;
 
 void	ft_putstr_fd(char *str, int fd);
@@ -55,5 +58,7 @@ int		ft_check_args(t_info args, int ac);
 void	check_max_and_min(long x);
 int		is_integer(int ac, char *av[]);
 int		ft_init(t_info *info);
+void	*routine(void *args);
+long long	ft_current_time(t_philo * philo);
 
 #endif

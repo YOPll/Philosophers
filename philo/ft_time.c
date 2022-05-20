@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   ft_time.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 14:58:08 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/20 17:59:45 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/20 17:54:30 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include/philo.h"
 
-int	main(int ac, char *av[])
+long long	ft_get_time(void)
 {
-	t_info	args;
+	t_time	time;
 
-	if (ac != 5 && ac != 6)
-		return (ft_puterr("Usage : ./philo <number_of_philosophers> "\
-			"<time_to_die> <time_to_eat> <time_to_sleep> "\
-			"[number_of_times_each_philosopher_must_eat]\n"));
-	else
-	{
-		if (is_integer(ac, av) == 1)
-			return (1);
-		memset(&args, 0, sizeof(t_info));
-		ft_get_args(&args, ac, av);
-		if (ft_check_args(args, ac) == 1)
-			return (1);
-		ft_init(&args);
-	}
-	return (0);
+	gettimeofday(&time, NULL);
+	return(time.tv_sec * 1000 + time.tv_usec / 1000);
+}
+
+long long	ft_current_time(t_philo * philo)
+{
+	long long	time;
+
+	time = ft_get_time() - philo->philo_info->created_at;
+	return (time);
 }
