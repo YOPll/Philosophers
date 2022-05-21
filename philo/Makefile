@@ -1,6 +1,6 @@
 NAME = philo
 GCC = cc
-# FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra
 HEADER_DIR = include
 HEADER = include/philo.h
 SRC = philo.c\

@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:07:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/20 20:25:21 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/21 18:40:15 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,19 @@ typedef struct s_info
 	pthread_mutex_t	*forks;
 }	t_info;
 
-void	ft_putstr_fd(char *str, int fd);
-int		ft_puterr(char *str);
-int		ft_atoi(const char *str);
-void	ft_get_args(t_info *args, int ac, char *av[]);
-int		ft_check_args(t_info args, int ac);
-void	check_max_and_min(long x);
-int		is_integer(int ac, char *av[]);
-int		ft_init(t_info *info);
-void	*routine(void *args);
+void		ft_putstr_fd(char *str, int fd);
+int			ft_puterr(char *str);
+int			ft_atoi(const char *str);
+void		ft_get_args(t_info *args, int ac, char *av[]);
+int			ft_check_args(t_info args, int ac);
+void		check_max_and_min(long x);
+int			is_integer(int ac, char *av[]);
+int			ft_init(t_info *info);
+void		*routine(void *args);
 long long	ft_current_time(t_philo * philo);
+void		*ft_is_philo_hungry(void *args);
+void		*ft_check_philos(void *args);
+void	print_msg_mutex(char *msg, t_philo *philo);
+void	ft_forks_down(t_philo *philo, int id1, int id2);
 
 #endif
