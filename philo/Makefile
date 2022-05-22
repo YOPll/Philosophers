@@ -1,14 +1,16 @@
 NAME = philo
 GCC = cc
-FLAGS = -Wall -Werror -Wextra
+# FLAGS = -Wall -Werror -Wextra
 HEADER_DIR = include
 HEADER = include/philo.h
 SRC = philo.c\
 	utils.c\
+	utils2.c\
 	init_args.c\
 	ft_init.c\
 	routine.c\
-	ft_time.c
+	ft_time.c\
+	actions.c
 
 OBJS = $(SRC:.c=.o)
 

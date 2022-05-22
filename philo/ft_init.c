@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 20:59:31 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/21 17:21:38 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/22 18:56:34 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_create_philos(t_info *info)
 	pthread_t	monitoring;
 
 	i = 0;
+	info->created_at = ft_get_time();
 	while (i < info->nb_philos)
 	{
 		info->philo[i].id = i;
@@ -42,13 +43,13 @@ int	ft_init(t_info *info)
 {
 	int	i;
 
+	if (!info)
+		return(1);
 	i = 0;
-	info->philo = malloc(sizeof(t_philo) * info->nb_philos);
-	info->forks = malloc(sizeof(pthread_mutex_t) * info->nb_philos);
+	info->philo = ft_calloc(info->nb_philos, sizeof(t_philo));
+	info->forks = ft_calloc(info->nb_philos, sizeof(pthread_mutex_t));
 	if (!info->philo || !info->forks)
 		return (1);
-	info->finished = 0;
-	info->all_ate = 0;
 	pthread_mutex_init(&info->finish_lock, NULL);
 	while (i < info->nb_philos)
 		pthread_mutex_init(&info->forks[i++], NULL);

@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:40:22 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/21 18:39:58 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/22 20:58:54 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,25 @@
 void	*ft_is_philo_hungry(void *args)
 {
 	printf("hello");
+	return (NULL);
 }
 
 void	*ft_check_philos(void *args)
 {
-	printf("hello");
+	t_philo * philo;
+
+	philo = args;
+	while(!philo->philo_info->finished)
+	{
+		if ((philo->last_meal + philo->philo_info->t_die) < ft_get_time())
+		{
+			print_msg_mutex("died", philo);
+			philo->should_die = 1;
+			philo->philo_info->finished = 1;
+			usleep(100);
+		}
+	}
+	return (NULL);
 }
 
 void	*routine(void *args)
@@ -41,6 +55,9 @@ void	*routine(void *args)
 			break;
 		}
 		grab_fork(philo, l_fork);
+		philo_eating(philo);
+		forks_down(philo, r_fork, l_fork);
+		sleep_think(philo);
 	}
 	return (NULL);
 }

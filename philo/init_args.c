@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 16:55:54 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/15 17:30:27 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/22 14:40:01 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,30 +24,30 @@ void	ft_get_args(t_info *args, int ac, char *av[])
 		args->nb_t_eat = -1;
 }
 
-int	ft_check_args(t_info args, int ac)
+int	ft_check_args(t_info *args, int ac)
 {
-	if (ac == 6 && args.nb_t_eat <= 0)
+	if (ac == 6 && args->nb_t_eat <= 0)
 	{
 		ft_puterr("ERROR : the number of times each "\
 			"philosopher_must_eat is less than 1\n");
 		return (1);
 	}
-	if (args.nb_philos <= 0)
+	if (args->nb_philos <= 0)
 	{
 		ft_puterr("ERROR : the number of philosophers is less than 1\n");
 		return (1);
 	}
-	if (args.t_die < 60)
+	if (args->t_die < 60)
 	{
 		ft_puterr("ERROR : the time_to_die is less than 60\n");
 		return (1);
 	}
-	if (args.t_eat < 60)
+	if (args->t_eat < 60)
 	{
 		ft_puterr("ERROR : the time_to_eat is less than 60\n");
 		return (1);
 	}
-	if (args.t_sleep < 60)
+	if (args->t_sleep < 60)
 		ft_puterr("ERROR : the time_to_sleep is less than 60\n");
 	return (0);
 }

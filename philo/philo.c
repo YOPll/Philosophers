@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 14:58:08 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/20 17:59:45 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/22 16:30:17 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int ac, char *av[])
 {
-	t_info	args;
+	t_info	*args;
 
 	if (ac != 5 && ac != 6)
 		return (ft_puterr("Usage : ./philo <number_of_philosophers> "\
@@ -24,11 +24,11 @@ int	main(int ac, char *av[])
 	{
 		if (is_integer(ac, av) == 1)
 			return (1);
-		memset(&args, 0, sizeof(t_info));
-		ft_get_args(&args, ac, av);
+		args = ft_calloc(1, sizeof(args));
+		ft_get_args(args, ac, av);
 		if (ft_check_args(args, ac) == 1)
 			return (1);
-		ft_init(&args);
+		ft_init(args);
 	}
 	return (0);
 }
