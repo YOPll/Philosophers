@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zyacoubi <mrx.ga10@gmail.com>              +#+  +:+       +#+        */
+/*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:40:22 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/05 15:40:23 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/23 20:29:32 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	is_integer(int ac, char *av[])
 void	check_max_and_min(long x)
 {
 	if (x <= INT_MIN || x > INT_MAX)
-		ft_puterr("Wrong argument");
+		ft_puterr("Wrong argument\n");
 }
 
 int	ft_atoi(const char *str)
@@ -63,7 +63,7 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	if (*str < '0' || *str > '9')
-		ft_puterr("Wrong argument");
+		ft_puterr("Wrong argument\n");
 	while (*str >= '0' && *str <= '9')
 	{
 		res = res * 10 + (*str - '0');
