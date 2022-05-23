@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:07:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/22 19:24:29 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/23 14:08:25 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t count, size_t size);
 void		philo_eating(t_philo *philo);
 void		sleep_think(t_philo *philo);
+void		join_and_free(t_info *philo);
 
 #endif

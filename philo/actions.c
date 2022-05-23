@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 20:59:31 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/22 19:23:53 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/23 15:38:07 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	philo_eating(t_philo *philo)
 {
 	print_msg_mutex("is eating", philo);
 	usleep(philo->philo_info->t_eat * 1000);
-	philo->last_meal = ft_get_time();
+	philo->last_meal =	ft_current_time(philo);
 	philo->ate++;
 	if (philo->ate == philo->philo_info->nb_t_eat)
 		philo->philo_info->all_ate++;

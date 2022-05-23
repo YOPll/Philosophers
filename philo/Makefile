@@ -10,7 +10,8 @@ SRC = philo.c\
 	ft_init.c\
 	routine.c\
 	ft_time.c\
-	actions.c
+	actions.c\
+	join_and_free.c
 
 OBJS = $(SRC:.c=.o)
 

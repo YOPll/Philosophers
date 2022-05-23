@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 14:58:08 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/22 16:30:17 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/23 15:26:29 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int	main(int ac, char *av[])
 		ft_get_args(args, ac, av);
 		if (ft_check_args(args, ac) == 1)
 			return (1);
-		ft_init(args);
+		if (!ft_init(args))
+			join_and_free(args);
 	}
 	return (0);
 }

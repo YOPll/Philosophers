@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 20:59:31 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/22 18:56:34 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/23 15:13:05 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ void	ft_create_philos(t_info *info)
 	{
 		info->philo[i].id = i;
 		info->philo[i].philo_info = info;
-		info->philo[i].last_meal = info->created_at;
+		info->philo[i].last_meal = 0;
 		info->philo[i].should_die = 0;
 		info->philo[i].ate = 0;
 		pthread_create(&info->philo[i].thread, NULL, routine, &info->philo[i]);
 		pthread_create(&monitoring, NULL, ft_check_philos, &info->philo[i]);
 		pthread_detach(monitoring);
 		i++;
-		usleep(200);
+		usleep(100);
 	}
 	if (info->nb_t_eat >= 0)
 	{
