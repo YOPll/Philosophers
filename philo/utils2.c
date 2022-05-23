@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:40:22 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/23 15:39:11 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/23 18:34:01 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,8 @@ void	*ft_calloc(size_t count, size_t size)
 void	print_msg_mutex(char *msg, t_philo *philo)
 {
 	pthread_mutex_lock(&philo->philo_info->finish_lock);
-	// printf ("%lld**\n", ft_get_time() - philo->philo_info->created_at);
 	if (!philo->philo_info->finished)
-		printf("%lld\t%d\t%s\n", ft_get_time() - philo->philo_info->created_at, philo->id + 1, msg);
-		// printf("%lld\t%d\t%s\n",ft_current_time(philo), philo->id + 1, msg);
+		printf("%lld\t%d\t%s\n", ft_get_time() - \
+			philo->philo_info->created_at, philo->id + 1, msg);
 	pthread_mutex_unlock(&philo->philo_info->finish_lock);
 }

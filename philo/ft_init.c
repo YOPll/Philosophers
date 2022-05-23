@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 20:59:31 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/23 15:13:05 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/23 18:37:57 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_create_philos(t_info *info)
 {
-	int i;
+	int			i;
 	pthread_t	monitoring;
 
 	i = 0;
@@ -44,7 +44,7 @@ int	ft_init(t_info *info)
 	int	i;
 
 	if (!info)
-		return(1);
+		return (1);
 	i = 0;
 	info->philo = ft_calloc(info->nb_philos, sizeof(t_philo));
 	info->forks = ft_calloc(info->nb_philos, sizeof(pthread_mutex_t));

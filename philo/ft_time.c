@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 14:58:08 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/22 18:56:05 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/23 18:37:13 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ long long	ft_get_time(void)
 	t_time	time;
 
 	gettimeofday(&time, NULL);
-	return(time.tv_sec * 1000 + time.tv_usec / 1000);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-long long	ft_current_time(t_philo * philo)
+long long	ft_current_time(t_philo *philo)
 {
 	long long	time;
 

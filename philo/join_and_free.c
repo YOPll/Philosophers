@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 20:59:31 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/23 14:49:41 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/23 18:36:27 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	join_and_free(t_info *philo)
 		pthread_mutex_destroy(&philo->forks[i++]);
 	pthread_mutex_destroy(&philo->finish_lock);
 	free(philo->forks);
-	free(philo);	
+	free(philo);
 }
