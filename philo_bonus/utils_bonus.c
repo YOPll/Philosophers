@@ -1,31 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_bonus.c                                      :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/24 21:18:16 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/24 21:21:34 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include_bonus/philo_bonus.h"
 
-int	main(int ac, char *av[])
+void	is_integer(int ac, char *av[])
 {
-	t_info	*args;
+	int	i;
+	int	j;
 
-	if (ac != 5 && ac != 6)
-		return (ft_puterr("Usage : ./philo <number_of_philosophers> "\
-			"<time_to_die> <time_to_eat> <time_to_sleep> "\
-			"[number_of_times_each_philosopher_must_eat]\n"));
-	else
+	i = 1;
+	j = 0;
+	while (i <= ac - 1)
 	{
-		is_integer(ac, av);
-		args = ft_calloc(1, sizeof(args));
-		ft_get_args(args, ac, av);
-		ft_check_args(args, ac);
+		j = 0;
+		while (av[i][j])
+		{
+			if ((av[i][j] >= 48 && av[i][j] <= 57) || \
+				av[i][j] == 43 || av[i][j] == 45 || av[i][j] == 32)
+			{
+				j++;
+			}
+			else
+			{
+				ft_puterr("Wrong arguments\n");
+				return (1);
+			}
+		}
+		i++;
 	}
 	return (0);
+}
+
+void	ft_putstr_fd(char *str, int fd)
+{
+	int	i;
+
+	if (!str)
+		return ;
+	i = 0;
+	while (str[i])
+	{
+		write(fd, &str[i], 1);
+		i++;
+	}
+}
+
+void	ft_puterr(char *str)
+{
+	ft_putstr_fd(str, 1);
+	exit(1);
 }
