@@ -14,13 +14,13 @@
 
 void	*ft_is_philo_hungry(void *args)
 {
-	t_philo	*philo;
+	t_info	*philo;
 
 	philo = args;
-	while (!philo->philo_info->finished)
+	while (!philo->finished)
 	{
-		if (philo->philo_info->all_ate == philo->philo_info->nb_philos)
-			philo->philo_info->finished = 1;
+		if (philo->all_ate == philo->nb_philos)
+			philo->finished = 1;
 		usleep (198);
 	}
 	return (NULL);

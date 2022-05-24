@@ -26,6 +26,7 @@ int	main(int ac, char *av[])
 			return (1);
 		args = ft_calloc(1, sizeof(args));
 		ft_get_args(args, ac, av);
+		printf("%d\n",args->nb_t_eat);
 		if (ft_check_args(args, ac) == 1)
 			return (1);
 		if (!ft_init(args))
