@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 14:58:08 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/23 20:10:02 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/24 20:34:07 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	main(int ac, char *av[])
 			return (1);
 		args = ft_calloc(1, sizeof(args));
 		ft_get_args(args, ac, av);
-		printf("%d\n",args->nb_t_eat);
 		if (ft_check_args(args, ac) == 1)
 			return (1);
 		if (!ft_init(args))
