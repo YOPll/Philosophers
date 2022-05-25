@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/25 17:47:36 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/25 18:31:47 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,11 @@ void	ft_get_args(t_info *args, int ac, char *av[])
 		args->nb_t_eat = -1;
 }
 
-int	ft_check_args(t_info *args, int ac)
+void	ft_check_args(t_info *args, int ac)
 {
 	if (ac == 6 && args->nb_t_eat <= 0)
-	{
 		ft_puterr("ERROR : the number of times each "\
 			"philosopher_must_eat is less than 1\n");
-		return (1);
-	}
 	if (args->nb_philos <= 0)
-	{
 		ft_puterr("ERROR : the number of philosophers is less than 1\n");
-		return (1);
-	}
-	return (0);
 }

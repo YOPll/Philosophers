@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:40:22 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/23 20:29:32 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/25 18:05:12 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,10 @@ void	check_max_and_min(long x)
 		ft_puterr("Wrong argument\n");
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, int j, t_info *args)
 {
-	int	j;
 	int	res;
 
-	j = 1;
 	res = 0;
 	while (*str == '\t' || *str == '\f' || *str == '\r'
 		|| *str == ' ' || *str == '\v' || *str == '\n')
@@ -63,7 +61,10 @@ int	ft_atoi(const char *str)
 		str++;
 	}
 	if (*str < '0' || *str > '9')
+	{
+		args->_return = 1;
 		ft_puterr("Wrong argument\n");
+	}
 	while (*str >= '0' && *str <= '9')
 	{
 		res = res * 10 + (*str - '0');

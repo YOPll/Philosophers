@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 14:58:08 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/25 17:44:26 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/25 18:09:20 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int ac, char *av[])
 			return (1);
 		args = ft_calloc(1, sizeof(*args));
 		ft_get_args(args, ac, av);
-		if (ft_check_args(args, ac) == 1)
+		if (args->_return || ft_check_args(args, ac) == 1)
 			return (1);
 		if (!ft_init(args))
 			join_and_free(args);

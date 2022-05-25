@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:07:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/23 20:29:51 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/25 18:03:56 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_philo
 
 typedef struct s_info
 {
+	int				_return;
 	int				nb_philos;
 	int				t_die;
 	int				t_eat;
@@ -53,7 +54,7 @@ typedef struct s_info
 
 void		ft_putstr_fd(char *str, int fd);
 int			ft_puterr(char *str);
-int			ft_atoi(const char *str);
+int			ft_atoi(const char *str, int j, t_info *args);
 void		ft_get_args(t_info *args, int ac, char *av[]);
 int			ft_check_args(t_info *args, int ac);
 void		check_max_and_min(long x);
