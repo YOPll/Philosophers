@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_bonus.c                                      :+:      :+:    :+:   */
+/*   utils2_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/25 17:05:16 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/25 15:50:17 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include_bonus/philo_bonus.h"
 
-int	main(int ac, char *av[])
+void	*ft_memset(void *b, int c, size_t len)
 {
-	t_info	*args;
+	size_t	i;
 
-	if (!(ac != 5 && ac != 6))
+	i = 0;
+	while (i < len)
 	{
-		is_integer(ac, av);
-		args = ft_calloc(1, sizeof(args));
-		ft_get_args(args, ac, av);
-		ft_check_args(args, ac);
-	}	
-	else
-	{
-		return (ft_puterr("Usage : ./philo <number_of_philosophers> "\
-			"<time_to_die> <time_to_eat> <time_to_sleep> "\
-			"[number_of_times_each_philosopher_must_eat]\n"));
+		((unsigned char *)b)[i] = c;
+		i++;
 	}
-	return (0);
+	return (b);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, 0, n);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*save;
+
+	save = malloc(size * count);
+	if (!save)
+		return (NULL);
+	ft_bzero(save, count * size);
+	return (save);
 }

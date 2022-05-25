@@ -6,12 +6,14 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:12:03 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/24 21:27:17 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:14:00 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_BONUS_H
 # define PHILO_BONUS_H
+# define INT_MAX	2147483647
+# define INT_MIN	-2147483648
 
 # include <unistd.h>
 # include <semaphore.h>
@@ -21,6 +23,9 @@
 # include <pthread.h>
 # include <string.h>
 # include <sys/time.h>
+
+typedef struct timeval	t_time;
+typedef struct s_info	t_info;
 
 typedef struct s_philo
 {
@@ -45,5 +50,12 @@ typedef struct s_info
 }	t_info;
 
 void	is_integer(int ac, char *av[]);
-
+void	*ft_memset(void *b, int c, size_t len);
+void	ft_bzero(void *s, size_t n);
+void	*ft_calloc(size_t count, size_t size);
+int		ft_puterr(char *str);
+void	ft_get_args(t_info *args, int ac, char *av[]);
+int		ft_check_args(t_info *args, int ac);
+int		ft_atoi(const char *str);
+void	check_max_and_min(long x);
 #endif

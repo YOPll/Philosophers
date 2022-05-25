@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/24 21:21:34 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:13:28 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,10 @@ void	is_integer(int ac, char *av[])
 				j++;
 			}
 			else
-			{
 				ft_puterr("Wrong arguments\n");
-				return (1);
-			}
 		}
 		i++;
 	}
-	return (0);
 }
 
 void	ft_putstr_fd(char *str, int fd)
@@ -54,8 +50,41 @@ void	ft_putstr_fd(char *str, int fd)
 	}
 }
 
-void	ft_puterr(char *str)
+int	ft_puterr(char *str)
 {
 	ft_putstr_fd(str, 1);
 	exit(1);
+	return (1);
+}
+
+int	ft_atoi(const char *str)
+{
+	int	j;
+	int	res;
+
+	j = 1;
+	res = 0;
+	while (*str == '\t' || *str == '\f' || *str == '\r'
+		|| *str == ' ' || *str == '\v' || *str == '\n')
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			j *= -1;
+		str++;
+	}
+	if (*str < '0' || *str > '9')
+		ft_puterr("Wrong argument\n");
+	while (*str >= '0' && *str <= '9')
+	{
+		res = res * 10 + (*str - '0');
+		str++;
+	}
+	check_max_and_min(res);
+	return (res * j);
+}
+void	check_max_and_min(long x)
+{
+	if (x <= INT_MIN || x > INT_MAX)
+		ft_puterr("Wrong argument\n");
 }
