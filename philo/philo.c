@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 14:58:08 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/24 20:34:07 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/25 15:47:31 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,7 @@ int	main(int ac, char *av[])
 {
 	t_info	*args;
 
-	if (ac != 5 && ac != 6)
-		return (ft_puterr("Usage : ./philo <number_of_philosophers> "\
-			"<time_to_die> <time_to_eat> <time_to_sleep> "\
-			"[number_of_times_each_philosopher_must_eat]\n"));
-	else
+	if (!(ac != 5 && ac != 6))
 	{
 		if (is_integer(ac, av) == 1)
 			return (1);
@@ -31,5 +27,9 @@ int	main(int ac, char *av[])
 		if (!ft_init(args))
 			join_and_free(args);
 	}
+	else
+		return (ft_puterr("Usage : ./philo <number_of_philosophers> "\
+			"<time_to_die> <time_to_eat> <time_to_sleep> "\
+			"[number_of_times_each_philosopher_must_eat]\n"));
 	return (0);
 }
