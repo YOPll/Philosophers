@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/25 15:50:17 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:46:18 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,10 @@ void	*ft_calloc(size_t count, size_t size)
 		return (NULL);
 	ft_bzero(save, count * size);
 	return (save);
+}
+
+int	ft_exit(void)
+{
+	exit(1);
+	return (1);
 }

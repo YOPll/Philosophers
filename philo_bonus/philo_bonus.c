@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/25 17:05:16 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:45:58 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	main(int ac, char *av[])
 	if (!(ac != 5 && ac != 6))
 	{
 		is_integer(ac, av);
-		args = ft_calloc(1, sizeof(args));
+		args = ft_calloc(1, sizeof(*args));
+		(!args) && ft_exit();
 		ft_get_args(args, ac, av);
 		ft_check_args(args, ac);
 	}	

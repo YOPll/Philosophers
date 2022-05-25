@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/25 17:01:31 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:47:36 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,5 @@ int	ft_check_args(t_info *args, int ac)
 		ft_puterr("ERROR : the number of philosophers is less than 1\n");
 		return (1);
 	}
-	if (args->t_die < 60)
-	{
-		ft_puterr("ERROR : the time_to_die is less than 60\n");
-		return (1);
-	}
-	if (args->t_eat < 60)
-	{
-		ft_puterr("ERROR : the time_to_eat is less than 60\n");
-		return (1);
-	}
-	if (args->t_sleep < 60)
-		ft_puterr("ERROR : the time_to_sleep is less than 60\n");
 	return (0);
 }

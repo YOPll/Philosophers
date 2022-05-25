@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:12:03 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/25 17:14:00 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/25 17:46:25 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,5 @@ void	ft_get_args(t_info *args, int ac, char *av[]);
 int		ft_check_args(t_info *args, int ac);
 int		ft_atoi(const char *str);
 void	check_max_and_min(long x);
+int		ft_exit(void);
 #endif
