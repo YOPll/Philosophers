@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:12:03 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/25 18:32:12 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/26 22:40:31 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,18 @@ typedef struct s_info
 	sem_t			*forks;
 }	t_info;
 
-void	is_integer(int ac, char *av[]);
-void	*ft_memset(void *b, int c, size_t len);
-void	ft_bzero(void *s, size_t n);
-void	*ft_calloc(size_t count, size_t size);
-int		ft_puterr(char *str);
-void	ft_get_args(t_info *args, int ac, char *av[]);
-void	ft_check_args(t_info *args, int ac);
-int		ft_atoi(const char *str);
-void	check_max_and_min(long x);
-int		ft_exit(void);
+void		is_integer(int ac, char *av[]);
+void		*ft_memset(void *b, int c, size_t len);
+void		ft_bzero(void *s, size_t n);
+void		*ft_calloc(size_t count, size_t size);
+int			ft_puterr(char *str);
+void		ft_get_args(t_info *args, int ac, char *av[]);
+void		ft_check_args(t_info *args, int ac);
+int			ft_atoi(const char *str);
+void		check_max_and_min(long x);
+int			ft_exit(void);
+long long	ft_get_time(void);
+long long	ft_current_time(t_philo *philo);
+void		ft_creat_philos(t_info *philo);
+
 #endif

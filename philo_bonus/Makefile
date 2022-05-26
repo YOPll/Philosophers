@@ -6,7 +6,9 @@ HEADER = include/philo_bonus.h
 SRC = philo_bonus.c\
 	utils_bonus.c\
 	utils2_bonus.c\
-	init_args_bonus.c
+	init_args_bonus.c\
+	ft_init_bonus.c\
+	ft_time_bonus.c
 
 OBJS = $(SRC:.c=.o)
 
@@ -22,7 +24,7 @@ clean:
 	rm -rf $(OBJS) $(OBJBS)
 
 fclean: clean
-	rm -rf $(NAME) $(NAME_CHECKER)
+	rm -rf $(NAME)
 
 re: fclean all
 
