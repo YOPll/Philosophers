@@ -27,7 +27,7 @@ clean:
 	rm -rf $(OBJS) $(OBJBS)
 
 fclean: clean
-	rm -rf $(NAME) $(NAME_CHECKER)
+	rm -rf $(NAME)
 
 re: fclean all
 
