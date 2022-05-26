@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/26 22:40:21 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/26 22:47:20 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,5 @@ void    ft_init(t_info *philo)
 		ft_puterr("semaphore error");
 		sem_unlink("phi");
 	}
+	ft_creat_philos(philo);
 }
