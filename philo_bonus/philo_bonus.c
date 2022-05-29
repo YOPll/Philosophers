@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/25 18:36:42 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/29 16:27:36 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int ac, char *av[])
 		ft_check_args(args, ac);
 		args->table = ft_calloc(args->nb_philos, sizeof(int));
 		(!args->table) && ft_exit();
+		ft_init(args);
 	}	
 	else
 	{

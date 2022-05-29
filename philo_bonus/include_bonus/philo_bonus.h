@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:12:03 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/26 22:40:31 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/29 16:31:51 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_info
 	int				nb_t_eat;
 	int				*table;
 	long long		created_at;
-	t_philo			*philo;
 	sem_t			*forks;
 }	t_info;
 
@@ -62,5 +61,6 @@ int			ft_exit(void);
 long long	ft_get_time(void);
 long long	ft_current_time(t_philo *philo);
 void		ft_creat_philos(t_info *philo);
+void    	ft_init(t_info *philo);
 
 #endif
