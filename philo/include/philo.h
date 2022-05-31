@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:07:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/25 18:03:56 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/31 18:32:37 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,14 @@ long long	ft_current_time(t_philo *philo);
 void		*ft_is_philo_hungry(void *args);
 void		*ft_check_philos(void *args);
 void		print_msg_mutex(char *msg, t_philo *philo);
-int			forks_down(t_philo *philo, int id1, int id2);
+void			forks_down(t_philo *philo, int id1, int id2);
 void		grab_fork(t_philo *philo, int id, int i);
 long long	ft_get_time(void);
 void		*ft_memset(void *b, int c, size_t len);
 void		ft_bzero(void *s, size_t n);
 void		*ft_calloc(size_t count, size_t size);
-int			philo_eating(t_philo *philo);
-int			sleep_think(t_philo *philo);
+void			philo_eating(t_philo *philo);
+void			sleep_think(t_philo *philo);
 void		join_and_free(t_info *philo);
 
 #endif
