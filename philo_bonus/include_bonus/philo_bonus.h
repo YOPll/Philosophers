@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:12:03 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/29 16:31:51 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/31 18:22:49 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void		check_max_and_min(long x);
 int			ft_exit(void);
 long long	ft_get_time(void);
 long long	ft_current_time(t_philo *philo);
-void		ft_creat_philos(t_info *philo);
+void		ft_creat_philos(t_info *philo, t_philo *args);
 void    	ft_init(t_info *philo);
 
 #endif
