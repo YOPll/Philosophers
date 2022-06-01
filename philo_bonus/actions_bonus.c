@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 18:30:37 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/06/01 16:34:34 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/06/01 18:07:02 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	grab_fork(t_philo *philo)
 {
     sem_wait(philo->philo_info->forks);
 	print_msg("has taken a fork", philo);
-    philo->last_eat = ft_current_time(philo);
 }
 
 void	forks_down(t_philo *philo)

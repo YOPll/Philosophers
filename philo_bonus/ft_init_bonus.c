@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/06/01 16:36:26 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/06/01 18:42:52 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	*check_mychild(void *args)
 	philo = args;
 	while (1)
 	{
-		if ((philo->last_meal + philo->philo_info->t_die) < ft_get_time())
+		if ((philo->last_meal + philo->philo_info->t_die) <= ft_get_time() - \
+				philo->philo_info->created_at)
 		{
 			print_msg("died", args);
 			exit(0);
@@ -49,16 +50,21 @@ void    ft_creat_philos(t_info *philo , t_philo *args)
 {
 	int	i;
 	int	id;
+	long long x;
 	
 	i = 0;
-	philo->created_at = ft_get_time();
+	x = ft_get_time();
+	printf("%lld\n", ft_get_time());
+	philo->created_at = x;
+	printf("%lld\n", philo->created_at);
+	printf("%lld\n", philo->created_at - x);
 	while (i < philo->nb_philos)
 	{
 		id = fork();
 		if (id == 0)
 		{
 			args[i].id = i;
-			action_control(args);
+			//action_control(args + i);
 		}
 		else
 			philo->table[i] = id;
@@ -75,7 +81,6 @@ void    ft_init(t_info *philo)
 	args = ft_calloc(philo->nb_philos, sizeof(t_philo));
 	(!args) && ft_exit();
 	args->philo_info = philo;
-	printf("%lld",args->last_meal);
 	sem_unlink("phi");
 	philo->forks = sem_open("phi", O_CREAT , 0644, philo->nb_philos);
 	if (philo->forks == SEM_FAILED)

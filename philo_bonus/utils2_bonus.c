@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/06/01 16:34:11 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/06/01 18:29:59 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,5 @@ int	ft_exit(void)
 void	print_msg(char *msg, t_philo *philo)
 {
 	if (!philo->should_die)
-		printf("%lld\t%d\t%s\n", ft_get_time() - \
-			philo->philo_info->created_at, philo->id + 1, msg);
+		printf("%li\t%d\t%s\n", ft_current_time(philo), philo->id + 1, msg);
 }
