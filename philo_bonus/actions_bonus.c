@@ -6,22 +6,22 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 18:30:37 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/31 18:54:47 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/06/01 16:34:34 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include_bonus/philo_bonus.h"
 
-void	grab_fork(t_philo *philo, int id, int i)
+void	grab_fork(t_philo *philo)
 {
     sem_wait(philo->philo_info->forks);
-	print_msg_mutex("has taken a fork", philo);
+	print_msg("has taken a fork", philo);
     philo->last_eat = ft_current_time(philo);
 }
 
-void	forks_down(t_philo *philo, int id1, int id2)
+void	forks_down(t_philo *philo)
 {
-	print_msg_mutex("is sleeping", philo);
+	print_msg("is sleeping", philo);
     sem_post(philo->philo_info->forks);
     sem_post(philo->philo_info->forks);
 }
@@ -42,12 +42,5 @@ void	sleep_think(t_philo *philo)
 	while (!(philo->last_eat + philo->philo_info->t_eat + \
 		philo->philo_info->t_sleep <= ft_current_time(philo)))
 		usleep (180);
-	print_msg_mutex("is thinking", philo);
-}
-
-void	action_control(t_philo *args)
-{
-	pthread_t	controller;
-
-	//pthread_create(&controller, NULL, check_mychild, arfgs);
+	print_msg("is thinking", philo);
 }
