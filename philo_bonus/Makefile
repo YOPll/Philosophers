@@ -8,7 +8,8 @@ SRC = philo_bonus.c\
 	utils2_bonus.c\
 	init_args_bonus.c\
 	ft_init_bonus.c\
-	ft_time_bonus.c
+	ft_time_bonus.c\
+	actions_bonus.c
 
 OBJS = $(SRC:.c=.o)
 

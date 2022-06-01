@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/25 17:46:18 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/31 18:27:02 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,11 @@ int	ft_exit(void)
 {
 	exit(1);
 	return (1);
+}
+
+void	print_msg_mutex(char *msg, t_philo *philo)
+{
+	if (!philo->should_die)
+		printf("%lld\t%d\t%s\n", ft_get_time() - \
+			philo->philo_info->created_at, philo->id + 1, msg);
 }

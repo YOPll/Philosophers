@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:12:03 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/31 18:22:49 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/31 18:48:34 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_philo
 	int				id;
 	int				ate;
 	int				should_die;
+	int				last_eat;
 	long long		last_meal;
 	t_info			*philo_info;
 }	t_philo;
@@ -62,5 +63,10 @@ long long	ft_get_time(void);
 long long	ft_current_time(t_philo *philo);
 void		ft_creat_philos(t_info *philo, t_philo *args);
 void    	ft_init(t_info *philo);
+void		print_msg_mutex(char *msg, t_philo *philo);
+void		sleep_think(t_philo *philo);
+void		philo_eating(t_philo *philo);
+void		forks_down(t_philo *philo, int id1, int id2);
+void		grab_fork(t_philo *philo, int id, int i);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/31 18:23:56 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/05/31 18:43:04 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void    ft_creat_philos(t_info *philo , t_philo *args)
 		}
 		else
 			philo->table[i] = id;
+		i++;
+		usleep(198);
 	}
 	free(args);
 }
