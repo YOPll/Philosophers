@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:12:03 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/06/01 16:34:56 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/06/02 18:46:32 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ void		philo_eating(t_philo *philo);
 void		forks_down(t_philo *philo);
 void		grab_fork(t_philo *philo);
 void		action_control(t_philo *args);
+void		free_and_close(t_info *philo);
 
 #endif

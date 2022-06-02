@@ -6,11 +6,31 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/06/01 18:42:52 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/06/02 19:20:59 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include_bonus/philo_bonus.h"
+
+void	free_and_close(t_info *philo)
+{
+	int i;
+	int x;
+	
+	i = -1;
+	while (i++ < philo->nb_philos)
+	{
+		waitpid(-1, &x, 0);
+		if (x != 0)
+		{
+			while (i < philo->nb_philos)
+			kill(philo->table[i++], 15);
+			break ;
+		}
+		i++;
+	}
+	sem_close(philo->forks);	
+}
 
 void	*check_mychild(void *args)
 {
@@ -25,7 +45,7 @@ void	*check_mychild(void *args)
 			print_msg("died", args);
 			exit(0);
 		}
-		usleep(489);	
+		usleep(1000);	
 	}
 	return (NULL);
 }
@@ -54,17 +74,15 @@ void    ft_creat_philos(t_info *philo , t_philo *args)
 	
 	i = 0;
 	x = ft_get_time();
-	printf("%lld\n", ft_get_time());
 	philo->created_at = x;
-	printf("%lld\n", philo->created_at);
-	printf("%lld\n", philo->created_at - x);
 	while (i < philo->nb_philos)
 	{
+		args[i].last_meal = philo->created_at;
 		id = fork();
 		if (id == 0)
 		{
 			args[i].id = i;
-			//action_control(args + i);
+			action_control(args + i);
 		}
 		else
 			philo->table[i] = id;
