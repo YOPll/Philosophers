@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:12:03 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/06/02 18:46:32 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/06/03 20:57:26 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct s_philo
 	int				id;
 	int				ate;
 	int				should_die;
-	int				last_eat;
 	long long		last_meal;
 	t_info			*philo_info;
 }	t_philo;
@@ -47,6 +46,7 @@ typedef struct s_info
 	int				*table;
 	long long		created_at;
 	sem_t			*forks;
+	sem_t			*pencil;
 }	t_info;
 
 void		is_integer(int ac, char *av[]);
@@ -61,8 +61,8 @@ void		check_max_and_min(long x);
 int			ft_exit(void);
 long long	ft_get_time(void);
 long long	ft_current_time(t_philo *philo);
-void		ft_creat_philos(t_info *philo, t_philo *args);
-void    	ft_init(t_info *philo);
+void		ft_creat_philos(t_info *philo);
+void		ft_init(t_info *philo);
 void		print_msg(char *msg, t_philo *philo);
 void		sleep_think(t_philo *philo);
 void		philo_eating(t_philo *philo);
@@ -70,5 +70,6 @@ void		forks_down(t_philo *philo);
 void		grab_fork(t_philo *philo);
 void		action_control(t_philo *args);
 void		free_and_close(t_info *philo);
+void		init_philo(t_info *info, t_philo *philo);
 
 #endif

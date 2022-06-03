@@ -6,46 +6,34 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/06/02 19:20:59 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/06/03 20:57:38 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include_bonus/philo_bonus.h"
 
-void	free_and_close(t_info *philo)
+void	init_philo(t_info *info, t_philo *philo)
 {
-	int i;
-	int x;
-	
-	i = -1;
-	while (i++ < philo->nb_philos)
-	{
-		waitpid(-1, &x, 0);
-		if (x != 0)
-		{
-			while (i < philo->nb_philos)
-			kill(philo->table[i++], 15);
-			break ;
-		}
-		i++;
-	}
-	sem_close(philo->forks);	
+	philo->philo_info = info;
+	philo->ate = 0;
+	philo->last_meal = info->created_at;
+	philo->should_die = 0;
 }
 
 void	*check_mychild(void *args)
 {
-	t_philo *philo;
-	
-	philo = args;
+	t_philo	*phi;
+
+	phi = args;
 	while (1)
 	{
-		if ((philo->last_meal + philo->philo_info->t_die) <= ft_get_time() - \
-				philo->philo_info->created_at)
+		if ((phi->last_meal + phi->philo_info->t_die) < ft_current_time(phi))
 		{
+			phi->should_die = 1;
 			print_msg("died", args);
-			exit(0);
+			exit(1);
 		}
-		usleep(1000);	
+		usleep(1000);
 	}
 	return (NULL);
 }
@@ -54,6 +42,7 @@ void	action_control(t_philo *args)
 {
 	pthread_t	controller;
 
+	args->last_meal = ft_current_time(args);
 	pthread_create(&controller, NULL, check_mychild, args);
 	while (1)
 	{
@@ -63,48 +52,46 @@ void	action_control(t_philo *args)
 		forks_down(args);
 		sleep_think(args);
 	}
-	pthread_detach(controller);
+	pthread_join(controller, NULL);
 }
 
-void    ft_creat_philos(t_info *philo , t_philo *args)
+void	ft_creat_philos(t_info *philo)
 {
-	int	i;
-	int	id;
-	long long x;
-	
+	t_philo	*phi;
+	int		i;
+	int		id;
+
 	i = 0;
-	x = ft_get_time();
-	philo->created_at = x;
+	phi = ft_calloc(philo->nb_philos, sizeof(t_philo));
+	(!phi) && ft_exit();
+	philo->created_at = ft_get_time();
 	while (i < philo->nb_philos)
 	{
-		args[i].last_meal = philo->created_at;
 		id = fork();
 		if (id == 0)
 		{
-			args[i].id = i;
-			action_control(args + i);
+			init_philo(philo, phi + i);
+			phi[i].id = i;
+			action_control(phi + i);
 		}
 		else
 			philo->table[i] = id;
 		i++;
-		usleep(198);
+		usleep(100);
 	}
-	free(args);
 }
 
-void    ft_init(t_info *philo)
+void	ft_init(t_info *philo)
 {
-	t_philo	*args;
-	
-	args = ft_calloc(philo->nb_philos, sizeof(t_philo));
-	(!args) && ft_exit();
-	args->philo_info = philo;
 	sem_unlink("phi");
-	philo->forks = sem_open("phi", O_CREAT , 0644, philo->nb_philos);
-	if (philo->forks == SEM_FAILED)
+	sem_unlink("pencil");
+	philo->forks = sem_open("phi", O_CREAT, 0644, philo->nb_philos);
+	philo->pencil = sem_open("pencil", O_CREAT, 0644, 1);
+	if (philo->forks == SEM_FAILED || philo->pencil == SEM_FAILED)
 	{
-		ft_puterr("semaphore error");
+		sem_unlink("pencil");
 		sem_unlink("phi");
+		ft_puterr("semaphore error");
 	}
-	ft_creat_philos(philo, args);
+	ft_creat_philos(philo);
 }

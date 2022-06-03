@@ -6,11 +6,30 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/06/02 18:46:52 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/06/03 20:57:54 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./include_bonus/philo_bonus.h"
+
+void	free_and_close(t_info *philo)
+{
+	int	i;
+	int	x;
+
+	i = -1;
+	while (++i < philo->nb_philos)
+	{
+		waitpid(-1, &x, 0);
+		if (x != 0)
+		{
+			while (i < philo->nb_philos)
+				kill(philo->table[i++], 15);
+			break ;
+		}
+	}
+	sem_close(philo->forks);
+}
 
 int	main(int ac, char *av[])
 {

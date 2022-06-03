@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/05/25 17:13:28 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/06/03 20:52:21 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int	ft_atoi(const char *str)
 	check_max_and_min(res);
 	return (res * j);
 }
+
 void	check_max_and_min(long x)
 {
 	if (x <= INT_MIN || x > INT_MAX)
