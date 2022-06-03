@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/06/03 22:57:51 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/06/03 23:48:10 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	free_and_close(t_info *philo)
 		}
 	}
 	sem_close(philo->forks);
+	sem_close(philo->pencil);
 }
 
 int	main(int ac, char *av[])
