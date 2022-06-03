@@ -1,8 +1,8 @@
 NAME = philo_bonus
-GCC = cc
+CC = cc
 FLAGS = -Wall -Werror -Wextra
-HEADER_DIR = include
-HEADER = include/philo_bonus.h
+HEADER_DIR = include_bonus
+HEADER = include_bonus/philo_bonus.h
 SRC = philo_bonus.c\
 	utils_bonus.c\
 	utils2_bonus.c\
