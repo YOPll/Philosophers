@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/06/03 22:58:30 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/06/03 23:00:06 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ void	action_control(t_philo *args)
 {
 	pthread_t	controller;
 
-	if (args->id % 2 == 0)
-		usleep((args->philo_info->t_eat / 2) * 1000);
 	args->last_meal = ft_current_time(args);
 	pthread_create(&controller, NULL, check_mychild, args);
 	pthread_detach(controller);
