@@ -6,7 +6,7 @@
 /*   By: zyacoubi <zyacoubi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 15:11:55 by zyacoubi          #+#    #+#             */
-/*   Updated: 2022/06/03 20:57:38 by zyacoubi         ###   ########.fr       */
+/*   Updated: 2022/06/03 22:58:30 by zyacoubi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ void	*check_mychild(void *args)
 		if ((phi->last_meal + phi->philo_info->t_die) < ft_current_time(phi))
 		{
 			phi->should_die = 1;
-			print_msg("died", args);
+			sem_wait(phi->philo_info->pencil);
+			printf("%lli\t%d\t%s\n", ft_current_time(phi), phi->id + 1, "died");
 			exit(1);
 		}
-		usleep(1000);
+		usleep(100);
 	}
 	return (NULL);
 }
@@ -42,17 +43,22 @@ void	action_control(t_philo *args)
 {
 	pthread_t	controller;
 
+	if (args->id % 2 == 0)
+		usleep((args->philo_info->t_eat / 2) * 1000);
 	args->last_meal = ft_current_time(args);
 	pthread_create(&controller, NULL, check_mychild, args);
+	pthread_detach(controller);
 	while (1)
 	{
 		grab_fork(args);
 		grab_fork(args);
 		philo_eating(args);
 		forks_down(args);
+		if (args->philo_info->nb_t_eat != -1 && \
+			args->ate >= args->philo_info->nb_t_eat)
+			exit(0);
 		sleep_think(args);
 	}
-	pthread_join(controller, NULL);
 }
 
 void	ft_creat_philos(t_info *philo)
@@ -83,14 +89,14 @@ void	ft_creat_philos(t_info *philo)
 
 void	ft_init(t_info *philo)
 {
-	sem_unlink("phi");
-	sem_unlink("pencil");
-	philo->forks = sem_open("phi", O_CREAT, 0644, philo->nb_philos);
-	philo->pencil = sem_open("pencil", O_CREAT, 0644, 1);
+	sem_unlink("/phi");
+	sem_unlink("/pencil");
+	philo->forks = sem_open("/phi", O_CREAT, 0644, philo->nb_philos);
+	philo->pencil = sem_open("/pencil", O_CREAT, 0644, 1);
 	if (philo->forks == SEM_FAILED || philo->pencil == SEM_FAILED)
 	{
-		sem_unlink("pencil");
-		sem_unlink("phi");
+		sem_unlink("/pencil");
+		sem_unlink("/phi");
 		ft_puterr("semaphore error");
 	}
 	ft_creat_philos(philo);
