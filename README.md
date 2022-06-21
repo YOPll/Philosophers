@@ -32,6 +32,19 @@ This project focuses on solving the dining philosophers problem - in computer sc
 Project requires:
 * C Lang compiler: **gcc** or **clang**
 * Possibility to work with Makefile
+## Functions
+
+Only the following functions are allowed to be used in this project on mandatory part:<br>
+| Function | Description | Function | Description |
+|----------|-------------|----------|-------------|
+| bzero | fill memory with a constant byte | pthread_create | create a new thread |
+| printf | format and print data | pthread_detach | detach a thread |
+| ft_calloc | allocate dynamic memory | pthread_join | join with a terminated thread |
+| free | free dynamic memory | pthread_mutex_init | initialise the mutex |
+| write | write to a file descriptor | pthread_mutex_destroy | destroy the mutex object |
+| usleep | suspend execution for microsecond intervals | pthread_mutex_lock | lock the mutex object |
+| gettimeofday |  get the time and gives the number of seconds and microseconds since the Epoch | pthread_mutex_unlock | releases the mutex object |
+
 
 ### Ressources
 
