@@ -42,3 +42,19 @@ Project requires:
 * [fork() example](https://timmurphy.org/2014/04/26/using-fork-in-cc-a-minimum-working-example/)
 * [fork() multiple childs](https://stackoverflow.com/questions/876605/multiple-child-process)
 * [Semaphore when programs end](https://stackoverflow.com/questions/9537068/sem-close-vs-sem-unlink-when-process-terminates)
+
+
+## Run:
+```c
+$> ./philo 2 800 200 200 1
+0 1 has taken a fork
+0 1 has taken a fork
+0 1 is eating
+200 1 is sleeping
+200 2 has taken a fork
+200 2 has taken a fork
+200 2 is eating
+400 2 is sleeping
+400 1 is thinking
+600 2 is thinking
+```
