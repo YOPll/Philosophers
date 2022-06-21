@@ -26,7 +26,7 @@ This project focuses on solving the dining philosophers problem - in computer sc
 * Any change of status of a philosopher will be written as follows (with X replaced with the philosopher number and timestamp_in_ms the current timestamp in milliseconds):
   * timestamp_in_ms X some_action
 
-All functions are created in accordance with [Norm](https://github.com/42School/norminette) - the bunch of rules how code should be formatted.
+[SUBJECT](Subject/en.subject.pdf)
 
 ### Requirements & usage
 Project requires:
