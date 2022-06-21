@@ -11,7 +11,6 @@
 
 This project focuses on solving the dining philosophers problem - in computer science it is an example problem often used in concurrent algorithm design to illustrate synchronization issues and techniques for resolving them.
 
-
 * One or more philosophers are sitting at a round table either eating, either thinking, either sleeping. While they are eating, they do not think or sleep; while thinking they don’t eat or sleep; and, of course, while sleeping, they do not eat or think.
 * The philosophers sit at a circular table with a large bowl of spaghetti in the center.
 * There are some forks on the table. Serving and eating spaghetti with a single fork is very inconvenient, so the philosophers will eat with two forks, one for each hand.
@@ -32,6 +31,7 @@ This project focuses on solving the dining philosophers problem - in computer sc
 Project requires:
 * C Lang compiler: **gcc** or **clang**
 * Possibility to work with Makefile
+
 ## Functions
 
 Only the following functions are allowed to be used in this project on mandatory part:<br>
@@ -71,3 +71,5 @@ $> ./philo 2 800 200 200 1
 400 1 is thinking
 600 2 is thinking
 ```
+
+<a href="#top">Back to top</a>
